@@ -1,0 +1,35 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+
+nav{
+background-color: black;
+}
+
+.pl-10{
+  padding-left: 10px;
+}
+.pr-10{
+  padding-right: 20px;
+}
+.pt-10{
+  padding-top: 10px;
+}
+.mt-10{
+  margin-top: 30px;
+}
+.mx-10{
+margin: 10px 20px ;
+
+}
+.red{
+  color: red;
+}
+.flex{
+  display: flex;
+}
