@@ -7,6 +7,7 @@ This project was developed using React.Its purpose is to develop projects using 
 3. [ ] Weather App
 4. [ ] Calculator App
 5. [ ] Color Palette App
+6. [ ] Table Generator App
 
 
     
