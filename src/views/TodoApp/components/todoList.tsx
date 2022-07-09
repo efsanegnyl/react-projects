@@ -1,69 +1,39 @@
-import React, { FC } from "react";
-import { IconButton, Text, Box, Flex, Checkbox } from "@chakra-ui/react";
+import React, { FC, useState } from "react";
+import { IconButton, Checkbox, Tag, Text, Flex } from "@chakra-ui/react";
 import { DeleteIcon } from "@chakra-ui/icons";
+export interface ITodoItem {
+  id: number;
+  text: string;
+  status: boolean;
+}
+interface ITodoListProps {
+  text: string;
+  onDelete: () => void;
+}
 
-const TodoList: FC = () => {
+const TodoList: FC<ITodoListProps> = ({ text, onDelete }) => {
   return (
-    <Box border="1px" borderColor="gray.200" rounded={"lg"}>
-      <Flex
-        mx={4}
-        fontSize="20px"
-        alignItems="center"
-        justifyContent="space-between"
-        borderBottom="1px"
-        borderColor="gray.200"
-        height={20}
-      >
-        <Checkbox size="lg" colorScheme="teal">
-          <Text>Todo List</Text>
-        </Checkbox>
-        <IconButton
-          colorScheme="gray"
-          aria-label="Call Segun"
-          size="md"
-          icon={<DeleteIcon />}
-        />
-      </Flex>
-      <Flex
-        mx={4}
-        fontSize="20px"
-        alignItems="center"
-        justifyContent="space-between"
-        borderBottom="1px"
-        borderColor="gray.200"
-        height={20}
-      >
-        <Checkbox size="lg" colorScheme="teal">
-          <Text>Todo List</Text>
-        </Checkbox>
-        <IconButton
-          colorScheme="gray"
-          aria-label="Call Segun"
-          size="md"
-          icon={<DeleteIcon />}
-        />
-      </Flex>
-      <Flex
-        mx={4}
-        fontSize="20px"
-        alignItems="center"
-        justifyContent="space-between"
-        borderBottom="1px"
-        borderColor="gray.200"
-        height={20}
-      >
-        <Checkbox size="lg" colorScheme="teal">
-          <Text>Todo List</Text>
-        </Checkbox>
+    <Flex
+      mx={4}
+      fontSize="20px"
+      alignItems="center"
+      justifyContent="space-between"
+      borderBottom="1px"
+      borderColor="gray.200"
+      height={20}
+    >
+      <Checkbox width="80%" size="lg" colorScheme="teal">
+        <Text>{text}</Text>
+      </Checkbox>
 
-        <IconButton
-          colorScheme="gray"
-          aria-label="Call Segun"
-          size="md"
-          icon={<DeleteIcon />}
-        />
-      </Flex>
-    </Box>
+      <IconButton
+        colorScheme="gray"
+        aria-label="Call Segun"
+        size="md"
+        icon={<DeleteIcon />}
+        onClick={onDelete}
+      />
+    </Flex>
   );
 };
 
