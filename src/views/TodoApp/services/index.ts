@@ -1,5 +1,15 @@
 import { IResponse, ITodo } from "./types";
 
+// const turkishToLower = (text: string): string => {
+//   var string = text;
+//   var letters = { İ: "i", I: "ı", Ş: "ş", Ğ: "ğ", Ü: "ü", Ö: "ö", Ç: "ç" };
+//   string = string.replace(/(([İIŞĞÜÇÖ]))/g, function (letter) {
+//     // @ts-ignore
+//     return letters[letter];
+//   });
+//   return string.toLowerCase();
+// };
+
 const GetAllTodos = (): ITodo[] =>
   JSON.parse(localStorage.getItem("todos") || "[]");
 
@@ -12,6 +22,15 @@ const Add = (text: string): IResponse => {
       throw new Error("Text is required");
     } else {
       const todos: ITodo[] = GetAllTodos();
+
+      if (
+        todos.find(
+          (todo: ITodo) =>
+            todo.text.toLocaleLowerCase() === text.toLocaleLowerCase()
+        )
+      ) {
+        throw new Error("Todo already exists");
+      }
       const id: number = idCreate();
 
       const todoItem: ITodo = {
@@ -69,10 +88,39 @@ const Delete = (id: number): IResponse => {
   }
 };
 
+const UpdateStatus = (id: number, status: boolean): IResponse => {
+  try {
+    const todos: ITodo[] = GetAllTodos();
+
+    const todoIndex: number = todos.findIndex((todo: ITodo) => todo.id === id);
+
+    if (todoIndex === -1) {
+      throw new Error("Todo not found");
+    } else {
+      todos[todoIndex].status = status;
+
+      localStorage.setItem("todos", JSON.stringify(todos));
+
+      return {
+        status: true,
+        message: "Todo status updated successfully",
+        data: null,
+      };
+    }
+  } catch (error) {
+    return {
+      status: false,
+      message: error.message,
+      data: null,
+    };
+  }
+};
+
 const functions = {
   Add,
   GetAllTodos,
   Delete,
+  UpdateStatus,
 };
 
 export default functions;

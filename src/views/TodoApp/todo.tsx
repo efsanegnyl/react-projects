@@ -6,8 +6,8 @@ import { Box } from "@chakra-ui/react";
 import TodoService from "./services";
 import autoAnimate from "@formkit/auto-animate";
 import { toast } from "react-hot-toast";
+import "./index.scss";
 
-//get all todos
 export interface ITodoItem {
   id: number;
   text: string;
@@ -54,6 +54,18 @@ const TodoApp: FC = () => {
 
     getAllTodos();
   };
+  console.log(todoItems);
+
+  const checkFunction = (id: number, status: boolean) => {
+    const todo = TodoService.UpdateStatus(id, status);
+    if (todo.status) {
+      toast.success(todo.message);
+    } else {
+      toast.error(todo.message);
+    }
+
+    getAllTodos();
+  };
 
   useEffect(() => {
     getAllTodos();
@@ -77,7 +89,10 @@ const TodoApp: FC = () => {
             <TodoList
               key={item.id}
               onDelete={() => deleteFunction(item.id)}
+              style={item.status ? "textUppercase" : ""}
               text={item.text}
+              onChange={() => checkFunction(item.id, !item.status)}
+              checked={item.status}
             />
           ))}
         </Box>
