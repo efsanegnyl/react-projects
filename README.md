@@ -13,6 +13,3 @@ This project was developed using React.Its purpose is to develop projects using 
     
 ## TodoList
 A to-do list application made using Reactjs, TypeScript  and Chakra UI.
-
-
-

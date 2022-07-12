@@ -13,6 +13,11 @@ const Home: FC<IHomeProps> = ({ name }) => {
       <Header />
       <div className=" flex  ">
         <Card linkUrl="/todo" text="TodoApp" imageUrl="/image/todoApp.png" />
+        <Card
+          linkUrl="/bionic-read"
+          text="Bionic Read"
+          imageUrl="/image/todoApp.png"
+        />
       </div>
     </>
   );

@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 
 import TodoApp from "./views/TodoApp/todo";
 import Home from "./views/Home/home";
+import BionicRead from "./views/BionicRead";
 
 const App: FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: FC = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/todo" element={<TodoApp />} />
+        <Route path="/bionic-read" element={<BionicRead />} />
       </Routes>
     </ChakraProvider>
   );
