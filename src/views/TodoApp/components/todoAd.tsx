@@ -9,7 +9,6 @@ interface ITodoAdProps {
 
 const TodoAd: FC<ITodoAdProps> = ({ onAdd }) => {
   const [text, setText] = useState("");
-
   const handleAdd = () => {
     if (text.length > 0) {
       onAdd(text);

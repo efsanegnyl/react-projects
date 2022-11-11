@@ -12,28 +12,30 @@ interface IHeaderProps {
 
 const Header: FC<IHeaderProps> = ({ name = "React Projects" }) => {
   return (
-    <>
-      <nav className="">
-        <Flex align="center" justify="space-between" p={10}>
-          <Link to="/">
-            <Text textColor="white">Home</Text>
-          </Link>
-          <Heading className="" textColor="white">
-            {name}
-          </Heading>
+    <nav>
+      <Flex align="center" justify="space-between" p={10}>
+        <Link to="/">
+          <Text textColor="white">Home</Text>
+        </Link>
+        <Heading className="" textColor="white">
+          {name}
+        </Heading>
 
-          <Flex align="center ">
-            <Link to="/todo" className="pr-10">
-              <FaGithub color="white" fontSize="24" />
-            </Link>
-            <Avatar
-              name="Efsane Günyol"
-              src="https://www.efsanegunyol.com/assets/images/my.jpeg"
-            />
-          </Flex>
+        <Flex align="center ">
+          <a
+            href="https://github.com/efsanegnyl"
+            target="_blank"
+            className="pr-10"
+          >
+            <FaGithub color="white" fontSize="24" />
+          </a>
+          <Avatar
+            name="Efsane Günyol"
+            src="https://www.efsanegunyol.com/assets/images/my.jpeg"
+          />
         </Flex>
-      </nav>
-    </>
+      </Flex>
+    </nav>
   );
 };
 

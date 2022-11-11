@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Routes, Route } from "react-router-dom";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, Box } from "@chakra-ui/react";
 import { Toaster } from "react-hot-toast";
 
 import TodoApp from "./views/TodoApp/todo";
@@ -14,7 +14,7 @@ const App: FC = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/todo" element={<TodoApp />} />
-        <Route path="/bionic-read" element={<BionicRead />} />
+        <Route path="/bionic-read" element={<BionicRead />} />{" "}
       </Routes>
     </ChakraProvider>
   );
